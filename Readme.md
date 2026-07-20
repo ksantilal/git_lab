@@ -1,57 +1,96 @@
-1.main branch
-    1.Readme.md file
- 
-2.release/july26
- 
-3.dev/july26
- 
-Create feature from dev/july26
- 
-### Sprint 1: ###
-1.Develop terraform Module [#devops-123] feature/devops-123
-2.Develop Ansible Module [#devops-456] feature/devops-456
- 
-Merge it to dev/july26
- 
-Merge dev/july26 -> release/july26
- 
-Merge release/july26 -> main branch
- 
-Next:
-Cleanup or delete feature branches
- 
-====================================
- 
-Next Step:
- 
-Create
-1.release/aug26
- 
-2.dev/aug26
- 
-Create feature from dev/aug26
- 
-### Sprint2: ###
-1.In Terraform module, create eks module [#devops-789]
-2.In Ansible Module, create playbook for python [#devops987]
- 
-Merge it to dev/aug26
- 
-Merge dev/july26 -> release/aug26
- 
-Merge release/july26 -> main branch
- 
-Next:
-Cleanup or delete feature branches
- 
-=================================================
- 
-### Sprint3: ### Hotfixes ex. hotfix/devops-654
- 
-Create hot fix branches from main
- 
-1.In Terraform module, update eks module [#devops-654]
-2.In Ansible Module, update playbook for python [#devops313]
- 
-Merge it to main branch
-Delete the hot fix branch
+# Git Branching and Release Workflow
+
+This repository follows a simple and structured Git branching model for development, releases, and hotfixes.
+
+## Branch Structure
+
+- main
+  - Production-ready code
+  - Only stable releases are merged here
+
+- release/july26
+  - Release branch for July 2026 work
+
+- dev/july26
+  - Integration branch for July 2026 development
+
+- release/aug26
+  - Release branch for August 2026 work
+
+- dev/aug26
+  - Integration branch for August 2026 development
+
+- feature/devops-123
+- feature/devops-456
+- feature/devops-789
+- feature/devops987
+- hotfix/devops-654
+- hotfix/devops-313
+
+## Sprint 1 Workflow
+
+### Create feature branches from dev/july26
+
+- feature/devops-123
+  - Develop Terraform module
+- feature/devops-456
+  - Develop Ansible module
+
+### Merge flow
+
+1. Merge feature branches into dev/july26
+2. Merge dev/july26 into release/july26
+3. Merge release/july26 into main
+4. Delete or clean up feature branches
+
+## Sprint 2 Workflow
+
+### Create feature branches from dev/aug26
+
+- feature/devops-789
+  - Create EKS module in Terraform
+- feature/devops987
+  - Create Python playbook in Ansible
+
+### Merge flow
+
+1. Merge feature branches into dev/aug26
+2. Merge dev/aug26 into release/aug26
+3. Merge release/aug26 into main
+4. Delete or clean up feature branches
+
+## Hotfix Workflow
+
+### Create hotfix branches from main
+
+- hotfix/devops-654
+  - Update EKS module
+- hotfix/devops-313
+  - Update Python playbook
+
+### Merge flow
+
+1. Merge hotfix branches into main
+2. Delete the hotfix branches after merging
+
+## Recommended Git Commands
+
+```bash
+git checkout main
+git pull origin main
+
+git checkout -b feature/devops-123 dev/july26
+git checkout -b feature/devops-456 dev/july26
+
+git checkout -b feature/devops-789 dev/aug26
+git checkout -b feature/devops987 dev/aug26
+
+git checkout -b hotfix/devops-654 main
+```
+
+## Notes
+
+- Always create feature branches from the correct development branch.
+- Merge feature branches into the relevant dev branch first.
+- Only merge tested and approved code into release and main branches.
+- Delete branches after successful merge to keep the repository clean.
